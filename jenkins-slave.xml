@@ -1,0 +1,10 @@
+<service>
+  <id>jenkins-slave</id>
+  <name>Jenkins-Slave</name>
+  <description>This service runs Jenkins continuous integration system.</description>
+  <env name="JENKINS_HOME" value="$Root_Folder"/>
+  <executable>java</executable>
+  <arguments>-jar agent.jar -jnlpUrl http://<your_jenkins_master>:8080/computer/Windows_Slave/slave-agent.jnlp -secret xxxxxxxxx -workDir "$Root_Folder"</arguments>
+  <logmode>rotate</logmode>
+  <onfailure action="restart" />
+</service>
